@@ -1,0 +1,107 @@
+class StandardOrder extends StatefulWidget {
+  @override
+  _StandardOrderState createState() => _StandardOrderState();
+}
+
+class _StandardOrderState extends State<StandardOrder> {
+  int selectedIndex = 2;
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Container(
+      alignment: Alignment.center,
+      color: Colors.white,
+      height: 120.0,
+      padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
+      child: CupertinoPicker(
+          scrollController: new FixedExtentScrollController(
+            initialItem: selectedIndex,
+          ),
+          squeeze: 1.3,
+          itemExtent: 30,
+          diameterRatio: 1,
+          magnification: 1.25,
+          backgroundColor: Colors.white,
+          onSelectedItemChanged: (int index) {
+            setState(() {
+              selectedIndex = index;
+
+            });
+          },
+          children: [
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text("100",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontWeight: selectedIndex == 0
+                          ? FontWeight.w700
+                          : FontWeight.w400,
+                      color: selectedIndex == 0
+                          ? Color(0xFF4A545B)
+                          : Colors.black,)),
+              ],
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text("500",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontWeight: selectedIndex == 1
+                            ? FontWeight.w700
+                            : FontWeight.w400,
+                        color: selectedIndex == 1
+                            ? Color(0xFF4A545B)
+                            : Colors.black)),
+              ],
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text("1.000",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontWeight: selectedIndex == 2
+                            ? FontWeight.w700
+                            : FontWeight.w400,
+                        color: selectedIndex == 2
+                            ? Color(0xFF4A545B)
+                            : Colors.black)),
+              ],
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "5.000",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      fontWeight: selectedIndex == 3
+                          ? FontWeight.w700
+                          : FontWeight.w400,
+                      color: selectedIndex == 3
+                          ? Color(0xFF4A545B)
+                          : Colors.black),
+                ),
+              ],
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text("10.000",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontWeight: selectedIndex == 4
+                            ? FontWeight.w700
+                            : FontWeight.w400,
+                        color: selectedIndex == 4
+                            ? Color(0xFF4A545B)
+                            : Colors.black)),
+              ],
+            ),
+          ]),
+    );
+  }
+}
